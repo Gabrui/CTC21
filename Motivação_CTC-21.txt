@@ -1,7 +1,11 @@
 	Atualmente, a comunicação via internet é amplamente utilizada e imprescindível
 em praticamente todos os ramos da sociedade. Portanto, garantir a segurança dessa comunicação
 é um tarefa necessária e importante para se manter a estabilidade de operação dessas redes.
-Para isso uma das ferramentas utilizadas é a criptografia sendo o principal método de criptografia
-utilizada na segurança de informações trocadas via internet.
+Usada com aplicações que variam desde a proteção de dados de transações bancárias a autenticação de
+serviços (a exemplo do protocolo https).
+Para isso uma das ferramentas utilizadas é a criptografia sendo o RSA o principal método
+utilizado na segurança de informações trocadas via internet.
         Assim, a criptografia pelo método RSA desperta grande interesse pela sua importância 
-e por ser uma das grandes inovações do mundo moderno. Além, de estar relacionada com a teoria dos números.
+e por ser uma das grandes inovações do mundo moderno. Além, de estar relacionada com a teoria dos números, que 
+por sua vez está inserida no contexto da matemática discreta.
+

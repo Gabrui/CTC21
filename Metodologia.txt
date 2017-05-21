@@ -1,7 +1,8 @@
 O projeto será executado em três etapas: 
 -Busca por informações no sentido de compreender o funcionamento do método de criptografia RSA e
  a sua relação com a disciplina CTC-21
--Tentativa de implementar o método em código utilizando as linguagens recomendadas
+-Tentativa de implementar o método em código utilizando as linguagens recomendadas, documentando
+ o código à medida que ele for escrito.
 -Analisar o código e escrever o relatório.
 
 Para isso o grupo cogita utilizar as seguintes ferramentas de pesquisa:
