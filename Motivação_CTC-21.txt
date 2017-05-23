@@ -1,11 +1,19 @@
-	Atualmente, a comunica��o via internet � amplamente utilizada e imprescind�vel
-em praticamente todos os ramos da sociedade. Portanto, garantir a seguran�a dessa comunica��o
-� um tarefa necess�ria e importante para se manter a estabilidade de opera��o dessas redes.
-Usada com aplica��es que variam desde a prote��o de dados de transa��es banc�rias a autentica��o de
-servi�os (a exemplo do protocolo https).
-Para isso uma das ferramentas utilizadas � a criptografia sendo o RSA o principal m�todo
-utilizado na seguran�a de informa��es trocadas via internet.
-        Assim, a criptografia pelo m�todo RSA desperta grande interesse pela sua import�ncia 
-e por ser uma das grandes inova��es do mundo moderno. Al�m, de estar relacionada com a teoria dos n�meros, que 
-por sua vez est� inserida no contexto da matem�tica discreta.
+	Atualmente, a comunicação via internet é amplamente utilizada e imprescindível
+em praticamente todos os ramos da sociedade. Portanto, garantir a segurança dessa comunicação
+é um tarefa necessária e importante para se manter a estabilidade de operação dessas redes.
+Usada com aplicações que variam desde a proteção de dados de transações bancárias a autenticação de
+serviços (a exemplo do protocolo https).
+Para isso uma das ferramentas utilizadas é a criptografia sendo o RSA o principal método
+utilizado na segurança de informações trocadas via internet.
+        Assim, a criptografia pelo método RSA desperta grande interesse pela sua importância 
+e por ser uma das grandes inovações do mundo moderno. Além, de estar relacionada com a teoria dos números, que 
+por sua vez está inserida no contexto da matemática discreta.
 
+Dylan
+
+- - - - - 
+
+	Nas últimas décadas, a crescente evolução tecnológica mudou completamente o estilo de vida das pessoas: o surgimento da internet e da comunicação celular facilitou a integração social; a capacidade de lançar satélites para monitoramento facilitou a localização e tornou mais sensível as relações políticas pelo mundo; a automação na indústrial substituiu as pessoas em trabalhos repetitivos que demandavam um alto esforço físico e psicológico e forçou a sociedade a se tornar mais capacitada para suprir os serviços que as máquinas ainda não podem realizar; o desenvolvimento de ferramentas, aliada ao esforço intelectual, possibilitou a realização de projetos que mais parecem saídos de filmes de ficção científica, como inteligências artificiais e robôs para o auxílio em resgates e salvamentos, dentre muitos outros exemplos de que a humanidade está se tornando cada vez mais dependente dos bits, chips, processadores e antenas.
+	Nesta era de informação, o ponto fraco da dependência dos circuitos já foi exposto diversas vezes: a segurança. A possibilidade de interceptação indesejada e/ou exposição de informações é extremamente preocupante em um mundo que, cada vez mais, se apoia na tecnologia. Neste panorama, a criptografia RSA se destaca por possibilitar a comunicação segura de informações em um ambiente inseguro e, até então, ter resistido a todas as tentativas de quebra. Devido à sua base em teoria clássica dos números, conteúdo ministrado na disciplina CTC21, este tema foi escolhido para o trabalho solicitado.	
+
+Thiago
