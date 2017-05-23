@@ -13,7 +13,20 @@ Dylan
 
 - - - - - 
 
-	Nas últimas décadas, a crescente evolução tecnológica mudou completamente o estilo de vida das pessoas: o surgimento da internet e da comunicação celular facilitou a integração social; a capacidade de lançar satélites para monitoramento facilitou a localização e tornou mais sensível as relações políticas pelo mundo; a automação na indústrial substituiu as pessoas em trabalhos repetitivos que demandavam um alto esforço físico e psicológico e forçou a sociedade a se tornar mais capacitada para suprir os serviços que as máquinas ainda não podem realizar; o desenvolvimento de ferramentas, aliada ao esforço intelectual, possibilitou a realização de projetos que mais parecem saídos de filmes de ficção científica, como inteligências artificiais e robôs para o auxílio em resgates e salvamentos, dentre muitos outros exemplos de que a humanidade está se tornando cada vez mais dependente dos bits, chips, processadores e antenas.
-	Nesta era de informação, o ponto fraco da dependência dos circuitos já foi exposto diversas vezes: a segurança. A possibilidade de interceptação indesejada e/ou exposição de informações é extremamente preocupante em um mundo que, cada vez mais, se apoia na tecnologia. Neste panorama, a criptografia RSA se destaca por possibilitar a comunicação segura de informações em um ambiente inseguro e, até então, ter resistido a todas as tentativas de quebra. Devido à sua base em teoria clássica dos números, conteúdo ministrado na disciplina CTC21, este tema foi escolhido para o trabalho solicitado.	
+	Nas últimas décadas, a crescente evolução tecnológica mudou completamente o estilo de vida das pessoas:
+o surgimento da internet e da comunicação celular facilitou a integração social; a capacidade de lançar satélites
+para monitoramento facilitou a localização e tornou mais sensível as relações políticas pelo mundo; a automação na
+indústrial substituiu as pessoas em trabalhos repetitivos que demandavam um alto esforço físico e psicológico e
+forçou a sociedade a se tornar mais capacitada para suprir os serviços que as máquinas ainda não podem realizar;
+o desenvolvimento de ferramentas, aliada ao esforço intelectual, possibilitou a realização de projetos que mais
+parecem saídos de filmes de ficção científica, como inteligências artificiais e robôs para o auxílio em resgates
+e salvamentos, dentre muitos outros exemplos de que a humanidade está se tornando cada vez mais dependente dos bits,
+chips, processadores e antenas.
+	Nesta era de informação, o ponto fraco da dependência dos circuitos já foi exposto diversas vezes: a segurança.
+A possibilidade de interceptação indesejada e/ou exposição de informações é extremamente preocupante em um mundo que,
+cada vez mais, se apoia na tecnologia. Neste panorama, a criptografia RSA se destaca por possibilitar a comunicação
+osegura de informações em um ambiente inseguro e, até então, ter resistido a todas as tentativas de quebra. Devido à
+sua base em teoria clássica dos números, conteúdo ministrado na disciplina CTC21, este tema foi escolhido para o trabalho
+solicitado.	
 
 Thiago
