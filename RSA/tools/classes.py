@@ -35,25 +35,20 @@ class person:
 	def __init__(self, personal_key):
 		self.pk = personal_key
 		self.M = ''
-		self.m = 0
-		self.c = 0		
+		self.m = []
+		self.c = []		
 
 class messenger(person):
 	def __init__(self, personal_key):
 		person.__init__(self, personal_key)
 
 	def unpadding_scheme(self):
-		while self.m > 0:
-			bit = self.m % 100
-			self.m = self.m // 100
-			if bit != 99:
-				self.M += chr(bit - 1 + ord('a'))
-			else:
-				self.M += ' '
-		self.M = self.M[::-1]
+		for k in self.m:
+			self.M += chr(k)
 
 	def decript(self):
-		self.m = support.modular_exponentiation(self.c, self.pk.k, self.pk.n) % self.pk.n
+		for k in self.c:
+			self.m.append(support.modular_exponentiation(k, self.pk.k, self.pk.n) % self.pk.n)
 
 class receiver(person):	
 	def __init__(self, personal_key):
@@ -62,11 +57,8 @@ class receiver(person):
 	#turn each letter of M into a number between 0 and 25 (spaces are marked as 99)
 	def padding_scheme(self):
 		for k in range(len(self.M)):
-			if self.M[k] != ' ':
-				letter = ord(self.M[k]) - ord('a') + 1
-			else:
-				letter = 99;
-			self.m = self.m * 100 + letter
+			self.m.append(ord(self.M[k]))
 
 	def encript(self):
-		self.c = support.modular_exponentiation(self.m, self.pk.k, self.pk.n)
+		for k in self.m:
+			self.c.append(support.modular_exponentiation(k, self.pk.k, self.pk.n) % self.pk.n)

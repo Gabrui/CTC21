@@ -35,15 +35,15 @@ Bob = classes.receiver(public_key)
 #for 500-bit numbers, using modular exponentiation. Bob then
 #transmits c to Alice.
 
-Bob.M = 'apple'
+Bob.M = 'this is my secret message'
 Bob.padding_scheme()
 
-if Bob.m > n:
-	print("can't be ciphered")
-	exit()
-
 Bob.encript()
-print(Bob.c)
+#encripted message
+print('encripted message: ')
+for k in Bob.c:
+	print(k, end='')
+print()
 
 #decryption
 #Alice can recover m from c by using her private key exponent
@@ -53,4 +53,6 @@ print(Bob.c)
 Alice.c = Bob.c
 Alice.decript()
 Alice.unpadding_scheme()
-print(Alice.M) #retrieved message
+
+print()
+print('retrieved message:\n', Alice.M) #retrieved message
