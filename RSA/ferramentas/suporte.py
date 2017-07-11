@@ -1,5 +1,6 @@
 import math
 
+# lê a mensagem salva no arquivo 'mensagem.txt' e retorna uma string com o texto lido
 def ler_mensagem(nome = 'mensagem.txt'):
 	f = open(nome, 'r')
 	line = f.readlines()
@@ -13,7 +14,7 @@ def atualiza(var, nova_var, q):
 	return var, nova_var
 
 # calcula o MDC de 'a' e 'b'
-def MDC(a, b):
+def MDC(a, b): # -> O(log2(min(a, b)))
 	while b != 0:
 		r = a % b
 		a = b
@@ -21,7 +22,7 @@ def MDC(a, b):
 	return a
 
 # calcula 'c = m^e (mod n)'
-def exponenciacao_modular(x, e, n):
+def exponenciacao_modular(x, e, n): # -> O(log2(e)) . O(% n)
 	if e == 0:
 		return 1
 	mul = 1
@@ -30,7 +31,7 @@ def exponenciacao_modular(x, e, n):
 	return (mul * exponenciacao_modular((x * x) % n, e // 2, n)) % n
 
 # calcula o inverso de 'a' módulo 'n'
-def inverso_modular(a, n):
+def inverso_modular(a, n): # -> log²(n)
 	t, r = 0, n
 	novo_t, novo_r = 1, a
 	while novo_r != 0:
@@ -45,15 +46,15 @@ def inverso_modular(a, n):
 
 # encontra um número menor que 'x' que seja coprimo com 'x'
 divisor = 10 # esta variável pode assumir qualquer valor entre 1 e 'x'
-             # está aqui apenas para impedir que as chaves pública e privada seja iguais 
+             # sua finalidade é impedir que as chaves pública e privada seja iguais 
 def encontra_coprimo(x):
 	y = x // divisor
-	while y > 1:
-		if MDC(y, x) == 1:
+	while y > 1: # -> O(log2(y) * x)
+		if MDC(y, x) == 1: 
 			return y
 		y -= 1
 	y = (x // divisor) + 1
-	while y < x:
+	while y < x: # -> O(log2(x) * x)
 		if MDC(y, x) == 1:
 			return y
 		y += 1

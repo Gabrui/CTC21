@@ -1,8 +1,6 @@
 import math, time # para medição dos tempos de execução
 from ferramentas import suporte, classes # módulos auxiliares
 
-ti = time.time() # início da execução
-
 # menor primo maior que 10^115
 p = 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000079
 
@@ -41,17 +39,16 @@ Bob = classes.mensageiro(chave_privada)
 # exponenciação modular. enfim, Bob transmite 'c' para Alice.
 
 Bob.M = suporte.ler_mensagem() # lê a mensagem salva no arquivo 'mensagem.txt'
-print('mensagem original: ')
+print('> mensagem original: ' + str(len(Bob.M)) + ' caracteres')
 print(Bob.M)
 print()
 
 Bob.conversor()
+
 Bob.encriptar()
-print('mensagem encriptada: ')
+print('> mensagem encriptada: ' + str(len(Bob.c)) + ' blocos de dados (' + str(classes.tam_bloco) + ' caracteres/bloco)')
 for k in Bob.c:
-	print(k, end='')
-print()
-print()
+	print(k, end='\n\n')
 
 # decriptação
 # Alice pode recuperar 'm' de 'c' usando o expoente 'd' da chave privada
@@ -65,10 +62,7 @@ Alice.desconversor()
 
 #tf = time.time()
 
-print('mensagem recuperada:\n', Alice.M)
-
-#print()
-#print(tf - ti)
+print('> mensagem recuperada:\n' + str(Alice.M))
 
 #https://en.wikipedia.org/wiki/RSA_(cryptosystem)
 #https://en.wikipedia.org/wiki/Euclidean_algorithm
