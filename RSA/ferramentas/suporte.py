@@ -23,12 +23,7 @@ def MDC(a, b): # -> O(log2(min(a, b)))
 
 # calcula 'c = m^e (mod n)'
 def exponenciacao_modular(x, e, n): # -> O(log2(e)) . O(% n)
-	if e == 0:
-		return 1
-	mul = 1
-	if e % 2 == 1:
-		mul = x
-	return (mul * exponenciacao_modular((x * x) % n, e // 2, n)) % n
+	return pow(x, e, n)
 
 # calcula o inverso de 'a' módulo 'n'
 def inverso_modular(a, n): # -> log²(n)
