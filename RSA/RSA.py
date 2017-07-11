@@ -1,58 +1,75 @@
-#https://en.wikipedia.org/wiki/RSA_(cryptosystem)
-from tools import functions, classes
+import math, time # para medição dos tempos de execução
+from ferramentas import suporte, classes # módulos auxiliares
 
-p, q = functions.rand_pq()
+ti = time.time() # início da execução
+
+# menor primo maior que 10^115
+p = 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000079
+
+# menor primo maior que 10^120
+q = 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000079
+
 n = p * q
-ln = functions.reduced_totient(p, q)
+ln = (p - 1) * (q - 1) # totiente(n)
 
-e = functions.coprime_finder(ln) #public key
-d = functions.modular_inverse(e, ln) #private key
+e = suporte.encontra_coprimo(ln) # expoente da chave publica
+d = suporte.inverso_modular(e, ln) # expoente da chave privada
 
-public_key = classes.cript_key(n, e)
-private_key = classes.cript_key(n, d)
-#'p', 'q' and 'ln' must also be kept secret because they can be used to calculate 'd'
+chave_publica = classes.chave_criptica(n, e)
+chave_privada = classes.chave_criptica(n, d)
+#'p', 'q' e 'ln' devem ser mantidas em sigilo, pois podem ser usadas para calcular 'd'
 
-#key distribution
-#Suppose that Bob wants to send a secret message to Alice.
-#If they decide to use RSA, Bob must know Alice's public key
-#to encrypt the message and, Alice must use her private key
-#to decrypt the message. To enable Bob to send his encrypted
-#messages, Alice transmits her public key (n, e) to Bob via a
-#reliable, but not necessarily secret route. Alice's private
-#key 'd', is never distributed.
+# distribuição da chave
+# suponha que Bob queira enviar uma mensagem secreta para Alice:
+# usando o RSA, Bob deve saber a chave pública de Alice para 
+# encriptar a mensagem e Alice deve usar a chave privada para
+# decriptar a mensagem. para que Bob possa enviar mensagens
+# encriptadas, Alice transmite a chave pública (n, e) para Bob
+# de uma forma não necessariamente segura. a chave privada 'd' de
+# Alice nunca é distribuída.
 
-Alice = classes.messenger(private_key)
-Bob = classes.receiver(public_key)
+Alice = classes.destinatario(chave_publica)
+Bob = classes.mensageiro(chave_privada)
 
-#encryption
-#After Bob obtains Alice's public key, he can send a message M
-#to Alice. To do it, he first turns M (strictly speaking, the
-#un-padded plaintext) into an integer m (strictly speaking,
-#the padded plaintext), such that 0 ≤ m < n by using an agreed-upon
-#reversible protocol known as a padding scheme. He then computes the
-#ciphertext 'c', using Alice's public key e, corresponding to
-#'c = m^e (mod n)'. This can be done reasonably quickly, even
-#for 500-bit numbers, using modular exponentiation. Bob then
-#transmits c to Alice.
+# encriptação
+# depois de Bob obter a chave pública de Alice, ele pode enviar a
+# mensagem 'M'. primeiro ele converte o texto em 'M' em um número
+# inteiro 'm' tal que 0 ≤ m < n usando um protocolo reversível
+# conhecido por Alice. em seguida, a mensagem é encriptada em 'c'
+# utilizando a chave pública 'e' de Alice (c = m^e (mod n)).
+# isto pode ser feito de forma razoavelmente fácil usando a 
+# exponenciação modular. enfim, Bob transmite 'c' para Alice.
 
-Bob.M = 'this is my secret messageç á ú âãttttttttttttttttt'
-Bob.padding_scheme()
-
-Bob.encript()
-#encripted message
-print('encripted message: ')
-for k in Bob.c:
-	print(k, end=',')
+Bob.M = suporte.ler_mensagem() # lê a mensagem salva no arquivo 'mensagem.txt'
+print('mensagem original: ')
+print(Bob.M)
 print()
 
-#decryption
-#Alice can recover m from c by using her private key exponent
-#'d' by computing 'c^d = m (mod n). Given m, she can recover
-#the original message M by reversing the padding scheme
+Bob.conversor()
+Bob.encriptar()
+print('mensagem encriptada: ')
+for k in Bob.c:
+	print(k, end='')
+print()
+print()
+
+# decriptação
+# Alice pode recuperar 'm' de 'c' usando o expoente 'd' da chave privada
+# (que apenas Alice conhece) ao computar 'c^d = m (mod n)'. a partir de
+# 'm', utilizando o protocolo reversível, Alice pode recuperar a mensagem
+# 'M' original.
 
 Alice.c = Bob.c
-Alice.decript()
-Alice.unpadding_scheme()
+Alice.decriptar()
+Alice.desconversor()
 
-print()
-print('retrieved message:\n', Alice.M) #retrieved message
+#tf = time.time()
+
+print('mensagem recuperada:\n', Alice.M)
+
+#print()
+#print(tf - ti)
+
+#https://en.wikipedia.org/wiki/RSA_(cryptosystem)
+#https://en.wikipedia.org/wiki/Euclidean_algorithm
+#http://pt.numberempire.com/primenumbers.php
