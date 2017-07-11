@@ -35,14 +35,14 @@ Bob = classes.receiver(public_key)
 #for 500-bit numbers, using modular exponentiation. Bob then
 #transmits c to Alice.
 
-Bob.M = 'this is my secret message'
+Bob.M = 'this is my secret messageç á ú âãttttttttttttttttt'
 Bob.padding_scheme()
 
 Bob.encript()
 #encripted message
 print('encripted message: ')
 for k in Bob.c:
-	print(k, end='')
+	print(k, end=',')
 print()
 
 #decryption

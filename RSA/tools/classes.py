@@ -1,5 +1,7 @@
 from tools import support
 
+tam_bloco = 3
+
 class prime:
 	def __init__(self, rg): #range
 		self.plist = [2, 3, 5, 7] #list of primes lesser than rg
@@ -43,8 +45,11 @@ class messenger(person):
 		person.__init__(self, personal_key)
 
 	def unpadding_scheme(self):
+		print('oi')
 		for k in self.m:
-			self.M += chr(k)
+			for j in range(tam_bloco, 0):
+				self.M += chr(k/(1000**(tam_bloco-j-1)))
+				k %= (1000**(tam_bloco-j-1))
 
 	def decript(self):
 		for k in self.c:
@@ -54,10 +59,16 @@ class receiver(person):
 	def __init__(self, personal_key):
 		person.__init__(self, personal_key)
 
-	#turn each letter of M into a number between 0 and 25 (spaces are marked as 99)
+	#turn each letter of M into a number between 0 and 255 (spaces are marked as 99)
 	def padding_scheme(self):
-		for k in range(len(self.M)):
-			self.m.append(ord(self.M[k]))
+		for k in range(tam_bloco - len(self.M)%tam_bloco):
+			self.M.append('\0')
+		for k in range(len(self.M)//tam_bloco):
+			valor = 0
+			for j in range(tam_bloco):
+				valor = valor*1000 + ord(self.M[k*tam_bloco+j])
+			self.m.append(valor)
+
 
 	def encript(self):
 		for k in self.m:
