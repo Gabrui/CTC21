@@ -1,0 +1,287 @@
+Análise espacial:
+- Para a codificação ASCII, cada caractere corresponde a 1 byte (8 bits). Para armazenar inteiros positivos até K são necessários cerca de log2(K) bits. Exemplificando com os valores utilizados no algoritmo implementado: a criptografia foi realizada agrupando o texto em blocos de 95 caracteres cada (97 x 8 = 776 bits de informação). Os primos escolhidos (p ~ 10^115 e q ~ 10^120) resultam em um valor 'n' de aproximadamente 10^235, valor que limita 'm' em cerca de log2(10^235) ~ 781 bits de informação. Assim, essencialmente, a quantidade de espaço ocupado após a encriptação é a mesma da mensagem original. Isso ocorre porque o protocolo reversível a ser utilizado é uma função bijetiva e o algoritmo RSA é reversível por definição, resultando em uma correspondencia entre o limitante 'n' (produto dos primos grandes) e a quantidade de caracteres que podem ser agrupados em um bloco a ser criptografado.
+
+Análise temporal:
+- 100 a 1000 palavras, 100 em 100
+
+100:
+    leitura da mensagem: 0.004
+    conversão: 0.000
+    encriptação: 0.032
+    decriptação: 0.036
+    desconversão: 0.004
+    total: 0.076
+
+200:
+    leitura da mensagem: 0.000
+    conversão: 0.000
+    encriptação: 0.060
+    decriptação: 0.064
+    desconversão: 0.004
+    total: 0.128
+
+300:
+    leitura da mensagem: 0.000
+    conversão: 0.004
+    encriptação: 0.096
+    decriptação: 0.092
+    desconversão: 0.012
+    total: 0.204
+
+400:
+    leitura da mensagem: 0.000
+    conversão: 0.004
+    encriptação: 0.128
+    decriptação: 0.124
+    desconversão: 0.012
+    total: 0.268
+
+500:
+    leitura da mensagem: 0.004
+    conversão: 0.004
+    encriptação: 0.180
+    decriptação: 0.192
+    desconversão: 0.020
+    total: 0.400
+
+600:
+    leitura da mensagem: 0.000
+    conversão: 0.008
+    encriptação: 0.188
+    decriptação: 0.188
+    desconversão: 0.020
+    total: 0.404
+
+700:
+    leitura da mensagem: 0.000
+    conversão: 0.004
+    encriptação: 0.220
+    decriptação: 0.220
+    desconversão: 0.020
+    total: 0.464
+
+800:
+    leitura da mensagem: 0.000
+    conversão: 0.008
+    encriptação: 0.260
+    decriptação: 0.256
+    desconversão: 0.024
+    total: 0.548
+
+900:
+    leitura da mensagem: 0.004
+    conversão: 0.008
+    encriptação: 0.284
+    decriptação: 0.280
+    desconversão: 0.032
+    total: 0.608
+
+1000:
+    leitura da mensagem: 0.004
+    conversão: 0.004
+    encriptação: 0.328
+    decriptação: 0.308
+    desconversão: 0.032
+    total: 0.676
+
+words   tempo total
+100	0,076
+200	0,128
+300	0,204
+400	0,268
+500	0,4
+600	0,404
+700	0,464
+800	0,548
+900	0,608
+1000	0,676
+
+- 1000 a 10000 palavras, 1000 em 1000
+
+1000:
+    leitura da mensagem: 0.004
+    conversão: 0.004
+    encriptação: 0.328
+    decriptação: 0.308
+    desconversão: 0.032
+    total: 0.676
+
+2000:
+    leitura da mensagem: 0.000
+    conversão: 0.012
+    encriptação: 0.625
+    decriptação: 0.620
+    desconversão: 0.068
+    total: 1.325
+
+3000:
+    leitura da mensagem: 0.000
+    conversão: 0.016
+    encriptação: 0.962
+    decriptação: 0.936
+    desconversão: 0.104
+    total: 2.018
+
+4000:
+    leitura da mensagem: 0.004
+    conversão: 0.020
+    encriptação: 1.270
+    decriptação: 1.272
+    desconversão: 0.152
+    total: 2.719
+
+5000:
+    leitura da mensagem: 0.000
+    conversão: 0.024
+    encriptação: 1.608
+    decriptação: 1.572
+    desconversão: 0.212
+    total: 3.416
+
+6000:
+    leitura da mensagem: 0.000
+    conversão: 0.032
+    encriptação: 1.888
+    decriptação: 1.878
+    desconversão: 0.248
+    total: 4.046
+
+7000:
+    leitura da mensagem: 0.000
+    conversão: 0.036
+    encriptação: 2.212
+    decriptação: 2.180
+    desconversão: 0.308
+    total: 4.736
+
+8000:
+    leitura da mensagem: 0.000
+    conversão: 0.040
+    encriptação: 2.544
+    decriptação: 2.496
+    desconversão: 0.360
+    total: 5.440
+
+9000:
+    leitura da mensagem: 0.000
+    conversão: 0.044
+    encriptação: 2.884
+    decriptação: 2.828
+    desconversão: 0.444
+    total: 6.200
+
+10000:
+    leitura da mensagem: 0.000
+    conversão: 0.048
+    encriptação: 3.112
+    decriptação: 3.124
+    desconversão: 0.564
+    total: 6.8485
+
+words   tempo total
+1000	0,676
+2000	1,325
+3000	2,018
+4000	2,719
+5000	3,416
+6000	4,046
+7000	4,736
+8000	5,44
+9000	6,2
+10000	6,848
+
+- 10000 a 100000 palavras, 10000 em 10000
+
+10000:
+    leitura da mensagem: 0.000
+    conversão: 0.048
+    encriptação: 3.112
+    decriptação: 3.124
+    desconversão: 0.564
+    total: 6.8485
+
+20000:
+    leitura da mensagem: 0.010
+    conversão: 0.090
+    encriptação: 6.081
+    decriptação: 6.085
+    desconversão: 1.650
+    total: 13.916
+
+30000:
+    leitura da mensagem: 0.000
+    conversão: 0.133
+    encriptação: 9.118
+    decriptação: 9.123
+    desconversão: 3.700
+    total: 22.074
+
+40000:
+    leitura da mensagem: 0.000
+    conversão: 0.180
+    encriptação: 12.160
+    decriptação: 12.210
+    desconversão: 4.937
+    total: 29.487
+
+50000:
+    leitura da mensagem: 0.000
+    conversão: 0.240
+    encriptação: 15.2964
+    decriptação: 15.684
+    desconversão: 8.051
+    total: 39.272
+
+60000:
+    leitura da mensagem: 0.008
+    conversão: 0.280
+    encriptação: 18.848
+    decriptação: 18.954
+    desconversão: 11.848
+    total: 49.939
+
+70000:
+    leitura da mensagem: 0.008
+    conversão: 0.332
+    encriptação: 21.980
+    decriptação: 22.095
+    desconversão: 15.396
+    total: 59.812
+
+80000:
+    leitura da mensagem: 0.008
+    conversão: 0.376
+    encriptação: 25.214
+    decriptação: 25.432
+    desconversão: 19.755
+    total: 70.785
+
+90000:
+    leitura da mensagem: 0.008
+    conversão: 0.428
+    encriptação: 28.252
+    decriptação: 27.514
+    desconversão: 24.188
+    total: 80.389
+
+100000:
+    leitura da mensagem: 0.004
+    conversão: 0.484
+    encriptação: 31.776
+    decriptação: 31.520
+    desconversão: 36.028
+    total: 99.812
+
+words   tempo total
+10000	6,848
+20000	13,916
+30000	22,074
+40000	29,487
+50000	39,272
+60000	49,939
+70000	59,812
+80000	70,785
+90000	80,389
+100000	99,812
+
+Em todos os gráficos pode-se observar o comportamento linear do tempo de execução em função do número de palavras no texto (palavras de 2 a 11 caracteres geradas aleatoriamente dentro dos caracteres da tabela ASCII, em média palavras de 5 letras). Devido ao valor constante de 'n' nas simulações, o tempo de execução depende praticamente apenas do número de blocos a serem criptografados, que cresce linearmente com o número de caracteres presentes no texto.

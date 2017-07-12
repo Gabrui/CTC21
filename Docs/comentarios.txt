@@ -1,0 +1,34 @@
+Gabriel: Pesquisa do método RSA. Descrição do funcionamento do código. Otimização do algoritmo. Análises de tempo e de implementação. Análise de segurança do projeto.
+
+
+
+---------------------------------------
+
+Para gerar uma chave e 2048 bits aleatória, utilizou-se o programa OpenSSL para gerar os números primos aleatórios. Dessa forma, efetuou-se os testes com o algoritmo utilizando-se um chave de 2048 e blocos de 250 caracteres. Como cada caractere foi representado por 8 bits na codificação utilizada, uma codificação de 2048 bits permite blocos de até 256 caracteres para que a mensagem fosse 
+
+O implementação do nosso algoritmo teve um tempo linear para a quantidade de caracteres criptografados. Isso se deve ao fato de que a criptografia empregada se deu por blocos de caracteres, e não pela a mensagem como um todo. Dessa forma, como cada bloco tem um tempo de processamento aproximadamente constante, o tempo de execução do algoritmo depende apenas da quantidade de blocos de caracteres a serem criptografados, e como cada bloco contém um número constante de caracteres, o tempo de execução do algoritmo depende linearmente da quantidade de caracteres a serem criptografada.
+
+É importante notar que cada bloco de caracter deve ter um tamanho considerável, caso contrário, um atacante que conhecesse a chave pública poderia simplesmente gerar todas as combinações de blocos possíveis. Por exemplo, considerando o caso no qual cada caractere fosse individualmente criptografado, um atacante poderia simplesmente gerar todos os 255 caracteres possíveis e assim teria a tabela numérica de tranformação do caractere para o número criptografado e assim poderia descobrir a mensagem criptografada.
+
+
+A segurança da implementação dá-se pelo tamanho do bloco de caracteres e pelo tamanho dos números primos empregados. O tamanho do bloco de caracteres é importante para impedir que um atacante, por força bruta, obtenha todas as possíveis combinações de blocos e seus respectivos números criptográficos e, uma vez que o processo de criptografia é determinístico, obter a mensagem original. Os grandeza da chave empregada, isto é, dos números primos, é importante não só por determinar o tamanho máximo do bloco, como também por ser necessário fatorá-lo para obter a chave privade e poder ler a mensagem original.
+
+A fim de avaliar a segurança do método RSA pela fatoração da chave pública, efetuou-se uma pesquisa bibliográfica. A maior chave encontrada a qual foi possível ser quebrada tinha um tamanho de 768 bits, consideravelmente próximo á chave de 781 bits utilizada inicialmente no projeto. Em um processador de um único núcleo, AMD Opteron, operando a 2.2 GHz e utilizando 2 GB de RAM, essa fatoração levaria cerca de 1500 anos [6]. 
+
+Com relação aos tempos de execução, observou-se que entre os tempos de conversão e de desconversão de texto para número, o último é consideravelmente mais lento que o primeiro, o que pode ser explicado pela realização da operação módulo, presente apenas no último. Dessa forma, a operação de exponenciação modular, que realiza várias vezes a operação de módulo, é ainda mais lenta, o que explica os maiores tempos de processamento na encriptação e decriptação em todo o algoritmo.
+
+
+----------------------------------
+
+CONSIDERAÇÕES FINAIS
+
+A implementação do sistema criptográfico baseado no método RSA para textos em português foi bem sucedida ao realizar a criptografia de caracteres especiais, ao ter uma ordem linear e a utilizar números primos e blocos suficientemente grandes para inviabilizar a sua quebra por força bruta.
+
+Observou-se que a maior parte do tempo de processamento da implementação se deu na encriptação e na decriptação das mensagens, o que pode ser justificado pela da exponenciação modular. Uma melhoria do algoritmo seria na otimização dessa função matemática, diminuindo assim o tempo de processamento.
+
+
+---------------------------------------
+
+REFERENCIA
+
+[6] Kleinjung et. al.; Factorization of a 768-bit RSA modulus; Disponível em: <https://eprint.iacr.org/2010/006>. Acessado em 4 de julho de 2017.

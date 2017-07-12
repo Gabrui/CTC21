@@ -1,0 +1,18 @@
+sobre o código:
+- 3 arquivos: RSA.py (principal), classes.py (simula os agentes envolvidos no processo de encriptação e decriptação), suporte.py (funções auxiliares);
+
+- suporte.py: 
+> ler_mensagem() - lê o texto salvo no arquivo 'mensagem.txt' e retorna uma string com o texto lido;
+> atualiza(var, nova_var, q) - função auxiliar que executa um passo intermediário no cálculo do inverso modular;
+> MDC(a, b) - calcula o máximo divisor comum entre 'a' e 'b' (complexidade O(log(min(a, b))) -> https://en.wikipedia.org/wiki/Euclidean_algorithm#Algorithmic_efficiency
+> exponenciacao_modular(x, e, n) - calcula x^e (mod n) com uma complexidade O(log(e) . M(n)), onde M(n) é a complexidade da operação 'módulo n'. usada para o cálculo de 'c = m^e (mod n)', onde 'm' é a mensagem convertida em número, 'e' é o expoente da chave pública, 'n' é o produto de dois primos grandes e 'c' é a mensagem cifrada.
+> inverso_modular(a, n) - calcula o inverso de 'a' módulo 'n' com uma complexidade O(log²(n)) -> https://en.wikipedia.org/wiki/Modular_multiplicative_inverse
+> encontra_coprimo(x) - encontra um número menor que 'x' que seja coprimo com 'x' numa complexidade O(x.log(x));
+
+- classes.py:
+> chave_criptica - classe da chave (pública ou privada);
+> pessoa - classe do agente (mensageiro ou destinatario);
+> mensageiro - converte a mensagem 'M' a ser enviada em um número 'm' por meio de um protocolo reversível que o destinatário tenha conhecimento. em seguida encripta 'm' em 'c' utilizando o algoritmo RSA e a chave pública.
+> destinatário - decripta a mensagem 'c' utilizando o algoritmo RSA e a chave privada, resultando no número 'm'. em seguida, desconverte 'm' utilizando o protocolo reversível, adquirindo a mensagem original 'M'.
+
+- RSA.py: exemplifica a utilização do algoritmo RSA numa comunicação entre dois indivíduos (Amanda e Bruno) desde a escolha dos números primos a serem utilizados para gerar as chaves públicas e privadas, passando pela conversão, encriptação e envio, até a recepção, decriptação e desconversão, retomando a mensagem original.
