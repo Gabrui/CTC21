@@ -1,0 +1,19 @@
+Pagina 3
+um problema da computacional
+um problema computacional
+
+Pagina 4
+a linguagem python. E documentação
+a linguagem python e a documentação
+
+Pagina 5 
+Implementação
+Fonte 12 -> 14
+
+Pagina 6
+78 caracteres
+95 caracteres
+
+Legenda das tabelas e figuras
+
+Apêndice do TempoRSA.py
